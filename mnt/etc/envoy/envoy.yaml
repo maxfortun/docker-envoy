@@ -85,12 +85,12 @@ static_resources:
   clusters:
   - name: service_pcp
     connect_timeout: 30s
-    type: STRICT_DNS
+    type: LOGICAL_DNS
     # Comment out the following line to test on v6 networks
     dns_lookup_family: V4_ONLY
     lb_policy: ROUND_ROBIN
     hosts: [
-      { socket_address: { address: 127.0.0.1, port_value: 43010 }}
+      { socket_address: { address: host.docker, port_value: 43010 } }
     ]
   - name: service_google
     connect_timeout: 30s
