@@ -22,6 +22,7 @@ done < <(docker image inspect -f '{{json .Config.ExposedPorts}}' $imageId|jq -r 
 HOST_MNT=${HOST_MNT:-$BWD/mnt}
 GUEST_MNT=${GUEST_MNT:-$BWD/mnt}
 
+DOCKER_RUN_ARGS+=( -v $GUEST_MNT/etc/letsencrypt:/etc/letsencrypt:ro )
 DOCKER_RUN_ARGS+=( -v $GUEST_MNT/etc/envoy/envoy.yaml:/etc/envoy/envoy.yaml )
 
 docker update --restart=no $NAME || true
