@@ -29,6 +29,7 @@ static_resources:
                   prefix: "/"
                 route:
                   cluster: service_pcp
+                  timeout: 60s
             - name: local_service
               domains: ["*"]
               routes:
@@ -61,6 +62,7 @@ static_resources:
                   prefix: "/"
                 route:
                   cluster: service_pcp
+                  timeout: 60s
             - name: local_service
               domains: ["*"]
               routes:
